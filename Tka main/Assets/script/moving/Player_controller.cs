@@ -14,7 +14,7 @@ public class Player_controller : MonoBehaviour
     public LayerMask groundLayer; // 바닥 레이어
     private bool canJump = true; // 점프 가능 여부
     public bool isGround = false; // 플레이어가 바닥에 있는지 여부
-    public float lastRotation = 1; // 플레이어가 바라보고 있는 방향.
+    public float lastRotation { get; set; } // 플레이어가 바라보고 있는 방향.
     Transform tr;
     Rigidbody2D rb; // 플레이어의 Rigidbody2D 컴포넌트
     SpriteRenderer spriteRenderer;
@@ -26,6 +26,7 @@ public class Player_controller : MonoBehaviour
 
     void Start()
     {
+        lastRotation = 1;
         tr = this.GetComponent<Transform>();
         rb = this.GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
